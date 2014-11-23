@@ -49,13 +49,7 @@ public final class ConsoleHelper {
         try
         {
             final String os = System.getProperty("os.name");
-
             Process p = os.contains("Windows") ? Runtime.getRuntime().exec("cls") : Runtime.getRuntime().exec("clear");
-
-//            if (os.contains("Windows"))
-//                Runtime.getRuntime().exec("cls");
-//            else
-//                Runtime.getRuntime().exec("clear");
         }
         catch (final Exception e)
         {

@@ -20,11 +20,12 @@ public class start {
         vectorHelper = new VectorHelper();
         initVectors();
 
+        System.out.println("");
         System.out.println("Testing:");
         System.out.println("--------");
         System.out.println("Test 'UnitVector' returned : " + testUnitVector());
         System.out.println("Test 'ScalarProduct' returned : " + testScalarProduct());
-        System.out.println("Test 'CrossProdukt' returned : " + testCrossProdukt());
+        System.out.println("Test 'CrossProdukt' returned : " + testCrossProduct());
         System.out.println("Test 'Determinant' returned : " + testDeterminant());
 
 //        ConsoleHelper.clearConsole();
@@ -33,6 +34,7 @@ public class start {
 
     /**
      * initialisiert die drei default Testvektoren
+     *
      */
     private static void initVectors() {
         System.out.println("initialize default vectors ['a', 'b', 'c']...");
@@ -63,12 +65,14 @@ public class start {
 
         double length = vectorHelper.getLength(vectors.get("b"));
         Vector comparer = new Vector(3);
-        int i = 0;
-        comparer.set(i, vectors.get("b").get(i++) / length);
-        comparer.set(i, vectors.get("b").get(i++) / length);
-        comparer.set(i, vectors.get("b").get(i) / length);
-
         Vector b = vectors.get("b");
+
+        int i = 0;
+        comparer.set(i, b.get(i++) / length);
+        comparer.set(i, b.get(i++) / length);
+        comparer.set(i, b.get(i) / length);
+
+
         Vector unitVector = vectorHelper.getUnitVector(vectors.get("b"));
         System.out.print("vector 'b': ");
         vectorHelper.output(b);
@@ -94,7 +98,7 @@ public class start {
         return scalarProduct == -58.5;
     }
 
-    private static boolean testCrossProdukt() {
+    private static boolean testCrossProduct() {
         System.out.println("");
         System.out.println("Calculate cross product of 'c' and 'a':");
         Vector c = vectors.get("c");

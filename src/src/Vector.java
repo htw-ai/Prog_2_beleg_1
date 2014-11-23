@@ -15,6 +15,12 @@ public class Vector {
         vector = new double[dimension];
     }
 
+    /**
+     * Gibt einen Achsenwert des Vektors zurueck (sehr fehlertolerant)
+     *
+     * @param index
+     * @return
+     */
     public double get(int index){
         try {
             return vector[index];
@@ -24,6 +30,12 @@ public class Vector {
         }
     }
 
+    /**
+     * Setzt einen Achsenwert des Vektors (sehr fehlertolerant)
+     *
+     * @param index
+     * @param value
+     */
     public void set(int index, double value){
         try {
             vector[index] = value;
@@ -34,7 +46,7 @@ public class Vector {
     }
 
     /**
-     * Reinitialisiert den Vektor mit einer neuen Dimension, unter Erhaltung der alten Achsenwerte
+     * Reinitialisiert den Vektor mit einer neuen Dimension, dabei bleiben die alten Achsenwerte erhalten
      *
      * @param dimension
      */

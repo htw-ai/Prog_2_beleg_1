@@ -57,15 +57,6 @@ public class VectorHelper {
      * @param vector
      */
     public void output(Vector vector){
-//        StringBuffer output = new StringBuffer("Vector [");
-//        for (int i = 0; i < vector.getDimension(); i++) {
-//            double value = vector.get(i);
-//            output.append(value + ";");
-//        }
-//        //removing the last semicolon
-//        output.deleteCharAt(output.length() - 1);
-//        output.append("]: ");
-
         System.out.println(vector.toString());
     }
 
@@ -133,8 +124,7 @@ public class VectorHelper {
         for (int i = 0; i < a.getDimension(); i++)
             scalar += a.get(i) * a.get(i);
 
-        scalar = Math.sqrt(scalar);
-        return scalar;
+        return Math.sqrt(scalar);
     }
 
     /**
