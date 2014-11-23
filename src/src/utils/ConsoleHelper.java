@@ -28,7 +28,7 @@ public final class ConsoleHelper {
      *
      * @return
      */
-    public static int readIntFromConsole(){
+    public static int readIntFromConsole() throws NumberFormatException{
         return Integer.valueOf(readFromConsole());
     }
 

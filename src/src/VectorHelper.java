@@ -36,18 +36,30 @@ public class VectorHelper {
      * @return
      */
     public Vector input(){
-        System.out.print("Dimension zwischen 1 und " + Vector.MaxDimension + ":");
-        int dimension = ConsoleHelper.readIntFromConsole();
-        Vector v = new Vector(dimension);
+        int dimension;
+        Vector v;
+        while (true){
+            try{
+                System.out.print("Dimension zwischen 1 und " + Vector.MaxDimension + " festlegen:");
+                dimension = ConsoleHelper.readIntFromConsole();
+                v = new Vector(dimension);
 
-        for (int i = 0; i < dimension; i++) {
-            System.out.println("Wert " + (i + 1) + ":");
-            double value = ConsoleHelper.readDoubleFromConsole();
-            v.set(i, value);
+                for (int i = 0; i < dimension; i++) {
+                    System.out.println("Wert " + (i + 1) + ":");
+                    double value = ConsoleHelper.readDoubleFromConsole();
+                    v.set(i, value);
+                }
+
+                break;
+            } catch (NumberFormatException e){
+                System.out.println("ERROR: Wert konnte nicht gelesen werden. Felermeldung=" + e.getMessage());
+            } catch (IllegalArgumentException e) {
+                System.out.println("ERROR: Vektor konnte nicht erstellt werden. Felermeldung='" + e.getMessage() + "'");
+            }
+            System.out.println("try again...");
         }
 
         System.out.println("");
-
         return v;
     }
 

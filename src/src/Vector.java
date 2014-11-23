@@ -8,9 +8,9 @@ public class Vector {
 
     public Vector(int dimension) {
         if(dimension > MaxDimension)
-            throw new IllegalArgumentException("max Dimension ist " + MaxDimension);
+            throw new IllegalArgumentException("max. Dimension ist " + MaxDimension);
         else if(dimension < 1)
-            throw new IllegalArgumentException("min Dimension ist 1");
+            throw new IllegalArgumentException("min. Dimension ist 1");
 
         vector = new double[dimension];
     }
