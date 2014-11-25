@@ -25,7 +25,8 @@ public class Vector {
         try {
             return vector[index];
         }catch (ArrayIndexOutOfBoundsException e){
-            reinitializeVector(index + 1);
+            // It's not necessary to reinit the vector with a higher dimension.
+            // reinitializeVector(index + 1);
             return 0;
         }
     }
@@ -33,7 +34,7 @@ public class Vector {
     /**
      * Setzt einen Achsenwert des Vektors (sehr fehlertolerant)
      *
-     * @param index
+     * @param index Achsewert
      * @param value
      */
     public void set(int index, double value){

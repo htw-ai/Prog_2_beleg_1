@@ -148,66 +148,71 @@ public class start {
             System.out.println("10) Beenden");
 
             input = ConsoleHelper.readFromConsole();
-            String vName1, vName2, vName3;
+            Vector v1, v2, v3;
 
-            switch (input) {
-                case "1":
-                    showVectorsAdministration();
-                    break;
-                case "2":
-                    System.out.println("Welche Vektoren sollen addiert werden?");
-                    vName1 = ConsoleHelper.readFromConsole();
-                    vName2 = ConsoleHelper.readFromConsole();
-                    System.out.println("Ergebnis: ");
-                    vectorHelper.output(vectorHelper.sum(vectors.get(vName1), vectors.get(vName2)));
-                    break;
-                case "3":
-                    System.out.println("Welche Vektoren sollen subtrahiert werden?");
-                    vName1 = ConsoleHelper.readFromConsole();
-                    vName2 = ConsoleHelper.readFromConsole();
-                    System.out.println("Ergebnis: ");
-                    vectorHelper.output(vectorHelper.sub(vectors.get(vName1), vectors.get(vName2)));
-                    break;
-                case "4":
-                    System.out.println("Skalarprodukt welcher Vektoren?");
-                    vName1 = ConsoleHelper.readFromConsole();
-                    vName2 = ConsoleHelper.readFromConsole();
-                    System.out.print("Ergebnis: ");
-                    System.out.println(vectorHelper.getScalarProdukt(vectors.get(vName1), vectors.get(vName2)));
-                    break;
-                case "5":
-                    System.out.println("Einheitsvektor welches Vektors?");
-                    vName1 = ConsoleHelper.readFromConsole();
-                    System.out.print("Ergebnis: ");
-                    vectorHelper.output(vectorHelper.getUnitVector(vectors.get(vName1)));
-                    break;
-                case "6":
-                    System.out.println("Laenge welchen Vektors?");
-                    vName1 = ConsoleHelper.readFromConsole();
-                    System.out.print("Ergebnis: ");
-                    System.out.println(vectorHelper.getLength(vectors.get(vName1)));
-                    break;
-                case "7":
-                    System.out.println("Vektorprodukt welcher Vektoren?");
-                    vName1 = ConsoleHelper.readFromConsole();
-                    vName2 = ConsoleHelper.readFromConsole();
-                    System.out.print("Ergebnis: ");
-                    vectorHelper.output(vectorHelper.getCrossProdukt(vectors.get(vName1), vectors.get(vName2)));
-                    break;
-                case "8":
-                    System.out.println("Determinante welcher Vektoren? (n=3)");
-                    vName1 = ConsoleHelper.readFromConsole();
-                    vName2 = ConsoleHelper.readFromConsole();
-                    vName3 = ConsoleHelper.readFromConsole();
-                    System.out.print("Ergebnis: ");
-                    System.out.println(vectorHelper.getDeterminant(vectors.get(vName1), vectors.get(vName2), vectors.get(vName3)));
-                    break;
-                case "10":
-                    System.out.println("Good bye :)");
-                    break;
-                default:
-                    System.out.println("Fehlerhafte Eingabe! Bitte erneut versuchen");
-                    break;
+            try{
+
+                switch (input) {
+                    case "1":
+                        showVectorsAdministration();
+                        break;
+                    case "2":
+                        System.out.println("Welche Vektoren sollen addiert werden?");
+                        v1 = getVectorByUser();
+                        v2 = getVectorByUser();
+                        System.out.println("Ergebnis: ");
+                        vectorHelper.output(vectorHelper.sum(v1, v2));
+                        break;
+                    case "3":
+                        System.out.println("Welche Vektoren sollen subtrahiert werden?");
+                        v1 = getVectorByUser();
+                        v2 = getVectorByUser();
+                        System.out.println("Ergebnis: ");
+                        vectorHelper.output(vectorHelper.sub(v1, v2));
+                        break;
+                    case "4":
+                        System.out.println("Skalarprodukt welcher Vektoren?");
+                        v1 = getVectorByUser();
+                        v2 = getVectorByUser();
+                        System.out.print("Ergebnis: ");
+                        System.out.println(vectorHelper.getScalarProdukt(v1, v2));
+                        break;
+                    case "5":
+                        System.out.println("Einheitsvektor welches Vektors?");
+                        v1 = getVectorByUser();
+                        System.out.print("Ergebnis: ");
+                        vectorHelper.output(vectorHelper.getUnitVector(v1));
+                        break;
+                    case "6":
+                        System.out.println("Laenge welchen Vektors?");
+                        v1 = getVectorByUser();
+                        System.out.print("Ergebnis: ");
+                        System.out.println(vectorHelper.getLength(v1));
+                        break;
+                    case "7":
+                        System.out.println("Vektorprodukt welcher Vektoren?");
+                        v1 = getVectorByUser();
+                        v2 = getVectorByUser();
+                        System.out.print("Ergebnis: ");
+                        vectorHelper.output(vectorHelper.getCrossProdukt(v1, v2));
+                        break;
+                    case "8":
+                        System.out.println("Determinante welcher Vektoren? (n=3)");
+                        v1 = getVectorByUser();
+                        v2 = getVectorByUser();
+                        v3 = getVectorByUser();
+                        System.out.print("Ergebnis: ");
+                        System.out.println(vectorHelper.getDeterminant(v1, v2, v3));
+                        break;
+                    case "10":
+                        System.out.println("Good bye :)");
+                        break;
+                    default:
+                        System.out.println("Fehlerhafte Eingabe! Bitte erneut versuchen");
+                        break;
+                }
+            } catch (UserCancelException e){
+                // do nothing, just show the main menu again...
             }
 
         } while (!input.equals("10"));
@@ -260,6 +265,23 @@ public class start {
                     break;
             }
         } while (!input.equals("10"));
+    }
+
+    private static Vector getVectorByUser() throws UserCancelException {
+        while (true) {
+            try{
+                System.out.print("Vektorname: ");
+                String vName = ConsoleHelper.readFromConsole();
+                if (!vectors.containsKey(vName)){
+                    System.out.println(vName + " ist kein definierter Vektor. Geben sie einen gueltigen Namen ein");
+                    continue;
+                }
+                return vectors.get(vName);
+            } catch (Exception e) {
+                System.out.println("ERROR: Vektor konnte nicht gefunden werden. Fehlermeldung=" + e.getMessage());
+                throw new UserCancelException();
+            }
+        }
     }
 
 }

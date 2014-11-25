@@ -6,11 +6,11 @@ import utils.ConsoleHelper;
 public class VectorHelper {
 
     /**
-     * gibt die hoehere Dimension zweier Vektoren zurueck
+     * Gibt die hoehere Dimension zweier Vektoren zurueck
      *
-     * @param a
-     * @param b
-     * @return
+     * @param a Vektor
+     * @param b Vektor
+     * @return hoehere Dimension von a oder b
      */
     private int getHigherDimension(Vector a, Vector b){
         return a.getDimension() > b.getDimension() ? a.getDimension() : b.getDimension();
@@ -19,7 +19,7 @@ public class VectorHelper {
     /**
      * Vergleicht die Werte zweier Vektoren und gibt true zurueck wenn alle Werte identisch sind
      *
-     * @return
+     * @return true wenn Vektoren gleich sind, sonst falsch
      */
     public boolean compare(Vector a, Vector b){
         int dimension = getHigherDimension(a, b);
@@ -33,7 +33,7 @@ public class VectorHelper {
     /**
      * Laesst den Benutzer ueber die Konsole einen Neuen Vektor erstellen.
      *
-     * @return
+     * @return vom Benutzer erzeugter Vektor
      */
     public Vector input(){
         int dimension;
@@ -64,7 +64,7 @@ public class VectorHelper {
     }
 
     /**
-     * gibt die Werte eines Vektors in der Konsole aus
+     * Gibt die Werte eines Vektors in der Konsole aus
      *
      * @param vector
      */
@@ -73,11 +73,11 @@ public class VectorHelper {
     }
 
     /**
-     * addiert zwei Vektoren
+     * Addiert zwei Vektoren
      *
-     * @param a
-     * @param b
-     * @return
+     * @param a Vektor
+     * @param b Vektor
+     * @return Summe von a und b
      */
     public Vector sum(Vector a, Vector b){
         int dimension = getHigherDimension(a, b);
@@ -94,9 +94,9 @@ public class VectorHelper {
      * (Addition des Gegenvektors)
      * a - b = a + ( -b ) = c
      *
-     * @param a
-     * @param b
-     * @return
+     * @param a Vektor
+     * @param b Vektor
+     * @return Differenz von a und b
      */
     public Vector sub(Vector a, Vector b){
         int dimension = getHigherDimension(a, b);
@@ -111,8 +111,8 @@ public class VectorHelper {
     /**
      * Gibt den Einheitsvektor eines Vektors aus.
      *
-     * @param a
-     * @return
+     * @param a Vektor
+     * @return Einheitsvektor von a
      */
     public Vector getUnitVector(Vector a){
         Vector e = new Vector(a.getDimension());
@@ -127,8 +127,8 @@ public class VectorHelper {
     /**
      * Gibt die Laenge eines Vektors aus.
      *
-     * @param a
-     * @return
+     * @param a Vektor
+     * @return Laenge von a
      */
     public double getLength(Vector a){
         double scalar = 0;
@@ -142,9 +142,9 @@ public class VectorHelper {
     /**
      * Gibt das Skalarprodukt zweier Vektoren zurueck.
      *
-     * @param a
-     * @param b
-     * @return
+     * @param a Vektor
+     * @param b Vektor
+     * @return Skalarprodukte von a und b
      */
     public double getScalarProdukt(Vector a, Vector b){
         int dimension = getHigherDimension(a, b);
@@ -159,9 +159,9 @@ public class VectorHelper {
     /**
      * Gibt das Kreuzprodukt (Vektorprodukt) zweier Vektoren zurueck
      *
-     * @param a
-     * @param b
-     * @return
+     * @param a Vektor
+     * @param b Vektor
+     * @return Kreuzprodukt von a und b
      */
     public Vector getCrossProdukt(Vector a, Vector b){
         int dimension = getHigherDimension(a, b);
@@ -180,10 +180,10 @@ public class VectorHelper {
     /**
      * Gibt die Determinante dreier Vektoren zurueck
      *
-     * @param a
-     * @param b
-     * @param c
-     * @return
+     * @param a Vektor
+     * @param b Vektor
+     * @param c Vektor
+     * @return Determinante von a, b und c
      */
     public double getDeterminant(Vector a, Vector b, Vector c){
         return getScalarProdukt(a, getCrossProdukt(b, c));
