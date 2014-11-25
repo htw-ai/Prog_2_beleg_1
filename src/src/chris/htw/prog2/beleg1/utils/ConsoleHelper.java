@@ -1,4 +1,4 @@
-package utils;
+package chris.htw.prog2.beleg1.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

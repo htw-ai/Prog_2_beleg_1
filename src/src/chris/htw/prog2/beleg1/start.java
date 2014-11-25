@@ -1,4 +1,6 @@
-import utils.ConsoleHelper;
+package chris.htw.prog2.beleg1;
+
+import chris.htw.prog2.beleg1.utils.ConsoleHelper;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -211,7 +213,7 @@ public class start {
                         System.out.println("Fehlerhafte Eingabe! Bitte erneut versuchen");
                         break;
                 }
-            } catch (UserCancelException e){
+            } catch (UserInputException e){
                 // do nothing, just show the main menu again...
             }
 
@@ -267,7 +269,7 @@ public class start {
         } while (!input.equals("10"));
     }
 
-    private static Vector getVectorByUser() throws UserCancelException {
+    private static Vector getVectorByUser() throws UserInputException {
         while (true) {
             try{
                 System.out.print("Vektorname: ");
@@ -279,7 +281,7 @@ public class start {
                 return vectors.get(vName);
             } catch (Exception e) {
                 System.out.println("ERROR: Vektor konnte nicht gefunden werden. Fehlermeldung=" + e.getMessage());
-                throw new UserCancelException();
+                throw new UserInputException();
             }
         }
     }

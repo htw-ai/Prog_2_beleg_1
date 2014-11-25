@@ -1,4 +1,6 @@
-import utils.ConsoleHelper;
+package chris.htw.prog2.beleg1;
+
+import chris.htw.prog2.beleg1.utils.ConsoleHelper;
 
 /**
  * Created by Christoph on 16.10.2014.

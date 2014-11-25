@@ -1,3 +1,5 @@
+package chris.htw.prog2.beleg1;
+
 /**
  * Created by Christoph on 16.10.2014.
  */
