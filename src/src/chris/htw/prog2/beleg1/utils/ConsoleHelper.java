@@ -12,7 +12,7 @@ public final class ConsoleHelper {
     /**
      * liest die Konsoleneingabe und gibt die Eingabe zurueck
      *
-     * @return
+     * @return eingelesene Zeichen
      */
     public static String readFromConsole(){
         BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
@@ -26,7 +26,7 @@ public final class ConsoleHelper {
     /**
      * liest die Konsoleneingabe eines integer Wertes
      *
-     * @return
+     * @return eingelesenen Integer Wert
      */
     public static int readIntFromConsole() throws NumberFormatException{
         return Integer.valueOf(readFromConsole());
@@ -35,7 +35,7 @@ public final class ConsoleHelper {
     /**
      * liest die Konsoleneingabe eines double Wertes
      *
-     * @return
+     * @return eingelesenen Double Wert
      */
     public static double readDoubleFromConsole(){
         return Double.valueOf(readFromConsole());

@@ -20,8 +20,8 @@ public class Vector {
     /**
      * Gibt einen Achsenwert des Vektors zurueck (sehr fehlertolerant)
      *
-     * @param index
-     * @return
+     * @param index Indexposition im Vektor
+     * @return Indexwert
      */
     public double get(int index){
         try {
@@ -36,8 +36,8 @@ public class Vector {
     /**
      * Setzt einen Achsenwert des Vektors (sehr fehlertolerant)
      *
-     * @param index Achsewert
-     * @param value
+     * @param index Indexposition im Vektor
+     * @param value Wert der gesetzt werden soll
      */
     public void set(int index, double value){
         try {
@@ -51,7 +51,7 @@ public class Vector {
     /**
      * Reinitialisiert den Vektor mit einer neuen Dimension, dabei bleiben die alten Achsenwerte erhalten
      *
-     * @param dimension
+     * @param dimension Dimension des neuen Arrays
      */
     private void reinitializeVector(int dimension){
         double[] newVector = new double[dimension];
@@ -65,6 +65,11 @@ public class Vector {
         vector = newVector;
     }
 
+    /**
+     * Gibt die Dimension des Vektor zurueck
+     *
+     * @return Dimension
+     */
     public int getDimension(){
         return vector.length;
     }

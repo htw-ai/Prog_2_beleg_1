@@ -21,6 +21,8 @@ public class VectorHelper {
     /**
      * Vergleicht die Werte zweier Vektoren und gibt true zurueck wenn alle Werte identisch sind
      *
+     * @param a Vektor
+     * @param b Vektor
      * @return true wenn Vektoren gleich sind, sonst falsch
      */
     public boolean compare(Vector a, Vector b){
@@ -68,7 +70,7 @@ public class VectorHelper {
     /**
      * Gibt die Werte eines Vektors in der Konsole aus
      *
-     * @param vector
+     * @param vector Vektor der ausgegeben werden soll
      */
     public void output(Vector vector){
         System.out.println(vector.toString());
